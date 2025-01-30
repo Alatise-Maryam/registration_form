@@ -2,15 +2,17 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:registration_form/screens/details_screen.dart';
 
-class RegistrationScreen extends 
-StatefulWidget {
+class RegistrationScreen extends StatefulWidget {
   @override
-  _RegistrationScreenState createState()
-  => _RegistrationScreenState();
+  _RegistrationScreenState createState() => 
+  _RegistrationScreenState();
 }
-class _RegistrationScreenState extends State<RegistrationScreen>{
-final TextEditingController firstNameController =TextEditingController();
+class _RegistrationScreenState extends 
+State<RegistrationScreen>{
+final TextEditingController firstNameController =
+TextEditingController();
 final TextEditingController lastNameController =TextEditingController();
 final TextEditingController emailController =TextEditingController();
 bool isRegistered = false;
@@ -54,8 +56,25 @@ Widget build (BuildContext context){
             color: Colors.white, fontSize: 20,
           ),
         ),
-       ),)
-      ],),),
+       ),
+       ),
+
+     const SizedBox(height: 30,),
+     if(isRegistered)
+     ElevatedButton(onPressed: () {
+Navigator.push(context, MaterialPageRoute(builder: (context)
+=>DetailsScreen(
+  firstname: firstNameController.text
+  lastname: lastNameController.text
+  email: emailController.text
+))
+
+     }, 
+     child: Text("View registraion details")
+     )
+      ],
+      ),
+      ),
   );
 }
 
